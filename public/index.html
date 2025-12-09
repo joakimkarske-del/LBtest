@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PawShop Inventory - Dog Products</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🐾 PawShop Inventory</h1>
+      <p>Manage your dog products inventory</p>
+    </header>
+
+    <div class="actions">
+      <button id="addProductBtn" class="btn btn-primary">+ Add New Product</button>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search products...">
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-value" id="totalProducts">0</div>
+        <div class="stat-label">Total Products</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="totalItems">0</div>
+        <div class="stat-label">Total Items</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="totalValue">$0</div>
+        <div class="stat-label">Total Value</div>
+      </div>
+    </div>
+
+    <div class="products-grid" id="productsGrid">
+      <!-- Products will be loaded here -->
+    </div>
+  </div>
+
+  <!-- Add/Edit Product Modal -->
+  <div id="productModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modalTitle">Add New Product</h2>
+        <span class="close">&times;</span>
+      </div>
+      <form id="productForm">
+        <div class="form-group">
+          <label for="productName">Product Name *</label>
+          <input type="text" id="productName" required>
+        </div>
+        <div class="form-group">
+          <label for="productDescription">Description</label>
+          <textarea id="productDescription" rows="3"></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="productQuantity">Quantity *</label>
+            <input type="number" id="productQuantity" min="0" required>
+          </div>
+          <div class="form-group">
+            <label for="productPrice">Price ($) *</label>
+            <input type="number" id="productPrice" step="0.01" min="0" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="productCategory">Category</label>
+          <select id="productCategory">
+            <option value="">Select category</option>
+            <option value="Toys">Toys</option>
+            <option value="Leashes & Collars">Leashes & Collars</option>
+            <option value="Feeding">Feeding</option>
+            <option value="Beds & Furniture">Beds & Furniture</option>
+            <option value="Clothing">Clothing</option>
+            <option value="Training">Training</option>
+            <option value="Treats & Health">Treats & Health</option>
+            <option value="Grooming">Grooming</option>
+            <option value="Waste Management">Waste Management</option>
+            <option value="Travel">Travel</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Product</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Update Quantity Modal -->
+  <div id="quantityModal" class="modal">
+    <div class="modal-content modal-small">
+      <div class="modal-header">
+        <h2>Update Quantity</h2>
+        <span class="close">&times;</span>
+      </div>
+      <form id="quantityForm">
+        <div class="form-group">
+          <label for="newQuantity">New Quantity *</label>
+          <input type="number" id="newQuantity" min="0" required>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" id="cancelQuantityBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
